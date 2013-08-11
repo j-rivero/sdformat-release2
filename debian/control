@@ -1,0 +1,12 @@
+Source: ros-hydro-sdformat
+Section: misc
+Priority: extra
+Maintainer: Nate Koening <nate@osrfoundation.org>
+Build-Depends: debhelper (>= 7.0.50~), cmake, libboost-all-dev, libtinyxml-dev
+Homepage: https://bitbucket.org/osrf/sdformat
+Standards-Version: 3.9.2
+
+Package: ros-hydro-sdformat
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Simulation Description Format (SDF) parser and description files.
