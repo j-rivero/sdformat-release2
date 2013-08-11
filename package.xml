@@ -1,0 +1,19 @@
+<package>
+  <name>sdformat</name>
+  <version>1.4.7</version>
+  <description>
+    Simulation Description Format (SDF) parser and description files.
+  </description>
+  <maintainer email="nate@osrfoundation.org">Nate Koening</maintainer>
+  <license>Apache</license>
+  <author>Open Source Robotics Foundation</author>
+  <url>https://bitbucket.org/osrf/sdformat</url>
+  <!-- depedencies -->
+  <buildtool_depend>cmake</buildtool_depend>
+
+  <build_depend>boost</build_depend>
+  <build_depend>tinyxml</build_depend>
+
+  <!-- Empty runtime dependencies. 
+       bloom/debuild should be able to hand runtime dependencies automatically -->
+</package>
