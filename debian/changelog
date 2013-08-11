@@ -1,0 +1,167 @@
+ros-hydro-sdformat (1.4.7-0precise) precise; urgency=high
+
+  * Change dependencies to ones handle by rosdep
+
+ -- Nate Koening <nate@osrfoundation.org>  Tue, 06 Aug 2013 22:00:00 -0000
+
+ros-hydro-sdformat (1.4.6-0precise) precise; urgency=high
+
+  * Simulate 1.4.6 version
+  * First changelog needed to run bloom
+  * New package.xml to be used with bloom
+  * Add Console_TEST
+  * Update end tags
+  * remove dead code
+  * Add an ostream-like class with a << operator that can print to a console and a
+    file.  All messages go to ~/.sdformat/sdformat.log.  Error, Warning, and Msg
+    messages additionally go to stderr.
+    Two inelegant aspects of this implementation:
+    1. The control characters that colorize the console output also go to the log
+    file, making it slightly less readable.
+    2. The Console::ConsoleStream class does not fully implement the ostream spec;
+    e.g., you can't pass std::endl to it.
+    With the new logging system in place, I made two changes to what is logged, at
+    what level:
+    1. On the assumption that they were commented out to avoid console spam,
+    I uncommented all the working sdfdbg invocations in parser_urdf.cc.
+    2. Demoted two common messages in parser_urdf.cc from sdfwarn to sdfdbg.
+  * change default friciton for bullet from -1 to 1 as well.  Remove max value constraints for friction parameters.
+  * change default mu and mu2 from max float to 1 (max physical value in each frictional direction).
+  * merging some updates from simbody branch
+  * Added units to sensitivity
+  * Typo in sensivity changed to sensitivity
+  * Merged with default
+  * Added receiver frequency range and sensivity for a wireless receiver
+  * change visual_blobs array to shared_ptr (didn't show up in tests)
+  * use shared_ptr to fix memory leaks, issue #13
+  * remove old pkgconfig and cmake config files, issue #14
+  * Merged from sdf_1.4
+  * clearing extensions from previous models for every new model. closes #16
+  * New transceiver sdf for wireless sensors
+  * Add attribute to <joint><axis> to specify which frame to use. Related to gazebo issue 494
+  * Add comment about -s option on osx
+  * Fix tests, warnings, and code_check on osx
+  * Merged in sdf_1.4 (pull request #28)
+    Merge sdf_1.4 back to default
+  * Added audio tags
+  * Add sdf definitions for gps sensor, sensor noise, and world spherical coordinates, correponding to gazebo branch gps_sensor
+  * Added tag sdformat_1.4.5 for changeset 52862f6b1db3
+  * bump to 1.4.5
+  * Fix backward compatibility
+  * Fix trailing whitespace
+  * Added tag sdformat_1.4.4 for changeset 5324b6148ee7
+  * bump to 1.4.4
+  * removed redundant commit. better adherence to gazebo style guide.
+  * patch to allow parser_urdf to parse visual plugins
+  * Support to categorize test with prefixes
+    It will allow to run UNIT or PERFORMANCE in separate runs
+  * Merged in sdf_1.4 (pull request #22)
+    Merge from 1.4 to default
+  * Merged in test_urdf (pull request #18)
+    Add Jose's parser tests, originally in gazebo pr 608
+  * change arg to reference, per code_check
+  * add missing link dir
+  * Merged in sdformat_rename (pull request #17)
+    Rename top-level files/directories from sdf to sdformat
+  * Merged in issue_10 (pull request #20)
+    rename SDF.hh to SDFImpl.hh (issue #10)
+  * update ifdef guard name
+  * implement logging, #8
+  * rename SDF.hh to SDFImpl.hh (issue #10)
+  * restore old equality operator tolerance
+  * Add Jose's parser tests, originally in gazebo pr 608
+  * Rename top-level files/directories from sdf to sdformat, to avoid conflict with
+    existing sdf package.  Issues #5 and #6.
+  * Added tag sdformat_1.4.3 for changeset 82cb49c98252
+  * bump to 1.4.3
+  * Merged in erp_cfm_visual_lump (pull request #12)
+    fix baxter parsing, lumped visual element pasing and stop erp/cfm parsing
+  * remove unused variable
+  * Fix for qt bug 22829
+  * Fix unneeded if
+  * revert test code
+  * if we are skipping links, user should know about it.  it makes debugging much easier.  making these sdfmsg makes it hard to redirect gzsdf print results to a file directly.
+  * fix equal comparison so tolerance is 1e-6, matches gazebo.  inspired by the bug that cuts off baxter arms during parsing because arm_mount mass is 0.00094542.
+  * fix stop erp and cfm parsing and visual element reduced naming (misisng _)
+  * restore old name for URDF collision bodies to fix https://bitbucket.org/osrf/gazebo/issue/758
+  * fix vector3 parsing for branch sdf_1.4
+  * Fixed parsing of Vector3 from strings in URDF parser
+  * Added tag sdformat_1.4.2 for changeset 00f1269dbae8
+  * bump to 1.4.2
+  * Only insert robot origin pose if it was successfully parsed from the URDF
+  * Add missing line from old URDF parser to insert the uri element for meshes
+  * Fix a search/replace error for parsing gazebo extensions
+  * Check for empty callback to avoid crashing on improper usage.
+  * Don't tell findFile() to use the callback because one hasn't been registered.
+  * Added tag sdformat_1.4.1 for changeset 5e914d65d9bd
+  * Added tag sdformat_1.4.1 for changeset ecaf01b752d1
+  * Added tag sdformat_1.4.1 for changeset 75398e2cf44a
+  * Added tag sdformat_1.4.1 for changeset abfbc3250e18
+  * Added tag sdformat_1.4.1 for changeset 2dc5a9e314ce
+  * Added tag sdformat_1.4.1 for changeset 6e81379a5bb0
+  * Added tag sdformat_1.4.1 for changeset c8e530774ad1
+  * Added tag sdformat_1.4.1 for changeset cc3730b4d013
+  * Added tag sdformat_1.4.1 for changeset bdcf3e5ea14e
+  * Added tag sdformat_1.4.1 for changeset f826ca4c4d07
+  * sdformat
+  * Added tag sdformat_1.4.1 for changeset 631c114ea5fb
+  * Added tag sdf_1.4.1 for changeset 3c88bf2fcf5e
+  * 1.4.1
+  * Added missing files
+  * Updates
+  * Fixed style
+  * Added in ODE function for inertia lumping
+  * Merged in sdf changes from gazebo default
+  * Added collide without bitmask surface property
+  * Merged in gazebo_pull_request_442 (pull request #4)
+    Fix gazebo issue #494, pull request 442
+  * Fix memory leak
+  * Match changes to gazebo
+  * Fix gazebo issue #494, pull request 442
+  * uninstall symlinks, similar to gazebo pull request 93
+  * Added collide_without_contact flag, needed by gazebo pull request #436
+  * Added tag sdformat_1.4.0 for changeset 452a1007e31b
+  * Added tag sdf_1.4.0 for changeset e21e7b20de13
+  * Added tag sdf_1.4.0 for changeset a9c8d6c8d531
+  * IMU noise parameters, proposed in gazebo pull request #421
+  * Added tag sdformat_1.4.0 for changeset 0066bb366f2c
+  * Added tag sdf_1.4.0 for changeset 629c9892ccc1
+  * Changed name to sdformat
+  * Added tag sdf_1.4.0 for changeset 80d1bc3460b8
+  * Fixes
+  * Added deb files
+  * Added tag sdf_1.4.0 for changeset 7bbbf70fdd3e
+  * Added tag sdf_1.4.0 for changeset 37270d7853d1
+  * Merged from default
+  * Merged
+  * Removed print statement
+  * Added convert script for code_check
+  * Typo gazebo->sdf
+  * Fix missing include for gtest
+  * Added camera noise
+  * removed debug print
+  * Fixed style and code checker
+  * Remove dependencies
+  * Added urdf
+  * Merged
+  * Added logo
+  * Updates
+  * Updates
+  * Fixed comments
+  * Added cmake config
+  * Updates
+  * Fixed file path check
+  * minor fixes
+  * Added documentation
+  * Fixed tests
+  * updates
+  * Updates
+  * Updates
+  * Merged in SDF changes from default on Gazebo
+  * Added documentation
+  * Fixed up the Param class.
+  * Initial commit
+
+ -- Nate Koening <nate@osrfoundation.org>  Wed, 07 Aug 2013 13:14:00 -0000
+
+
